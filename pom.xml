@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.flight.log.app</groupId>
+  <artifactId>flight-log-visualizer</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>log.parser</module>
+    <module>gmaps.path.builder</module>
+    <module>gps.range.setup</module>
+    <module>gif.encoder</module>
+      <module>app.main</module>
+  </modules>
+  <name>flight-log-visualizer</name>
+
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>13</maven.compiler.source>
+    <maven.compiler.target>13</maven.compiler.target>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <skipDockerBuild>false</skipDockerBuild>
+      </properties>
+    </profile>
+    <profile>
+      <id>skipTestRun</id>
+      <activation>
+        <property>
+          <name>skipBuild</name>
+        </property>
+      </activation>
+      <properties>
+        <skipDockerBuild>true</skipDockerBuild>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.codehaus.mojo</groupId>-->
+<!--        <artifactId>exec-maven-plugin</artifactId>-->
+<!--        <version>1.6.0</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>docker-build</id>-->
+<!--            <phase>package</phase>-->
+<!--            <goals>-->
+<!--              <goal>exec</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--        <inherited>false</inherited>-->
+<!--        <configuration>-->
+<!--          <executable>docker-build.sh</executable>-->
+<!--          <arguments>-->
+<!--            <argument>${docker.image}</argument>-->
+<!--            <argument>${project.version}</argument>-->
+<!--          </arguments>-->
+<!--          <skip>${skipDockerBuild}</skip>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+
+
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.0.0-M1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.0.0-M1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.8.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+</project>
