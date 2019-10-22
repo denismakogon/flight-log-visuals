@@ -1,3 +1,5 @@
 .idea
 target
 .java-version
+*.jpg
+*.gif

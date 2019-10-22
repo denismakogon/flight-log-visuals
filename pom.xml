@@ -3,16 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.flight.log.app</groupId>
   <artifactId>flight-log-visualizer</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <modules>
-    <module>log.parser</module>
-    <module>gmaps.path.builder</module>
-    <module>gps.range.setup</module>
-    <module>gif.encoder</module>
-      <module>app.main</module>
-  </modules>
   <name>flight-log-visualizer</name>
 
   <url>http://maven.apache.org</url>
@@ -113,5 +106,25 @@
     </pluginManagement>
 
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.maps</groupId>
+      <artifactId>google-maps-services</artifactId>
+      <version>0.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
 </project>
