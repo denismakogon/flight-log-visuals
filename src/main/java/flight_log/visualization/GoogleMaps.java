@@ -18,7 +18,7 @@ public class GoogleMaps {
     private final int HEIGHT = 800;
 
     public GoogleMaps(String apiToken) throws Exception {
-        if (apiToken.isEmpty()) {
+        if (apiToken == null || apiToken.isEmpty()) {
             throw new Exception("empty google api token");
         }
 
